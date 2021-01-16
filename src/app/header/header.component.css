@@ -1,0 +1,16 @@
+.header{
+    padding: 5px 20 px;
+    background:blueviolet;
+}
+
+.title{
+    text-decoration:none;
+    color: white;
+}
+
+.add-employee,.login, .register{
+    float:right;
+    text-decoration:none;
+    color: white;
+    padding-top:20px;
+}

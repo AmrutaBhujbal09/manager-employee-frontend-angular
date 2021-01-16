@@ -1,0 +1,41 @@
+
+<diV class="container d-flex justify-content-center">
+
+    <form [formGroup]="loginForm" class="border mt-5 p-8" style="width:30%;height:40%;border: width 3px;;border-color:hsla(9,100%, 0%,0);border-radius: 25px; padding: 20px;background:white;" (ngSubmit)="onSubmit()">
+        <p class="h4 text-center mb-4 mt-2">Login to your account</p>
+
+
+        <div class="md-form">
+           <div class="input-group">
+    
+           
+           <input type="text " id="email" [formControlName]="'email'" placeholder="Email" class="form-control mb-2"> 
+           </div> 
+            <div *ngIf="loginForm.get('email').touched">
+                <label *ngIf="loginForm.get('email').hasError('pattern')"
+                 style="font-size:16px;color:red;">Opp's Invalid Email..!</label>
+                <label *ngIf="loginForm.get('email').hasError('required')" 
+                style="font-size:16px;color: red;">Email Id Is Required</label>          
+            </div>
+        </div>
+
+       <div>
+            <input type="password" id="password" [formControlName]="'password'" placeholder="Password" class="form-control">
+            <label *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')" 
+            style="font-size:16px;color:red;">password is required</label>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Rember Me
+            </label>
+        </div>
+
+        <button class="btn btn-success btn-block mt-4" [disabled]="!loginForm.valid" >Login</button> 
+        <!--[disabled]="!loginForm.valid">Sigh In</button>-->
+        <p>Not a member?
+            <a href="/register">Register</a>
+        </p>
+    </form>
+</diV>
+

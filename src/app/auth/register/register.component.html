@@ -1,0 +1,89 @@
+
+
+
+<diV class=" container d-flex justify-content-center">
+    <form [formGroup]="registerForm" class="form-signin form-content-width border mt-3  p-8" style="width:45%;border-style:solid;border: width 8px;border-color:hsla(9,100%, 0%,0);border-radius: 25px; padding: 20px;background:white;" (ngSubmit)="onSubmit()">
+       
+        <p class="h4 text-center mt-1 mb-3">Sign Up</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <input type="text" id="fname" [formControlName]="'fname'" placeholder="First Name" class="text-left form-control mb-3" autofocus="">
+                    <label *ngIf="registerForm.get('fname').touched && registerForm.get('fname').hasError('required')" 
+                    style="font-size:16px;color:red;">First name is required</label>
+
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" id="lname" [formControlName]="'lname'" placeholder="Last Name" class="form-control mb-3" autofocus="">
+                    <label *ngIf="registerForm.get('lname').touched && registerForm.get('lname').hasError('required')"
+                    style="font-size:16px;color:red;">Last name is required</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="inputusername" [formControlName]="'username'" placeholder="Username" class="form-control mb-3" autofocus=""> 
+                <label *ngIf="registerForm.get('username').hasError('required')" style="font-size:16px;color:red;">Username is required
+                </label>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="text" id="email" [formControlName]="'email'" placeholder="Email" class="form-control mb-3" autofocus="">
+                    <div *ngIf="registerForm.get('email').touched">
+                        <label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size:16px;color: red;">Invalid
+                        email</label>
+                        <label *ngIf="registerForm.get('email').hasError('required')" style="font-size:16px;color:red;">Email field is required
+                        </label>
+                    </div>
+                </div>    
+            </div>
+           
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="password" id="password" [formControlName]="'password'" placeholder="Password" class="text-left form-control mb-3" maxlength="15" autofocus="">
+                    <label *ngIf="registerForm?.get('password')?.touched && registerForm?.get('password')?.hasError('required')" 
+                    class="text-danger warning-messages">Password is required</label>
+
+                </div>
+                <!-- <div class="col-sm-6">
+                    <input type="password" id="cpassword" [formControlName]="'cpassword'" placeholder="Confirm Password" class="form-control mb-3" maxlength="15" autofocus="">
+                    <div *ngIf="registerForm?.get('cpassword')?.touched">
+                        <label *ngIf="registerForm?.get('cpassword')?.hasError('required')"
+                        class="text-danger warning-message">Confirm Password is required</label>
+                
+                        <label *ngIf="registerForm?.get('cpassword')?.hasError('mismatch')"
+                        class="text-danger warning-message">Password do not matched</label>
+                    </div>
+                    
+                    
+                </div> -->
+            </div>
+            
+            
+            
+            <div class="form-group shadow -textarea" autofocus="">
+                <textarea class="form-control z-depth-1" rows="2" placeholder="Address" id="address"  [formControlName]="'address'" >
+
+                    
+                </textarea>
+
+            </div>
+
+
+            <div class="form-group">
+                <input type="text" id="company" [formControlName]="'company'" placeholder="Company Name" class="form-control mb-3" autofocus=""> 
+            </div>
+
+            <div class="form-group">
+                <input type="date" id="DOB" [formControlName]="'dob'" placeholder="Date Of Birth" class="form-control mb-3" autofocus=""> 
+            </div>
+        
+            
+          
+        
+           
+            <button class="btn btn-success btn-block mt-4" [disabled]="!registerForm.valid" type="submit">Submit</button> 
+           
+        </div>
+    </form>
+</diV>

@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "manager-employee-app"
+  "defaultProject": "manager-employee-app",
+  "cli": {
+    "analytics": false
+  }
 }
