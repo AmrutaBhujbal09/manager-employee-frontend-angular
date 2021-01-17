@@ -10,7 +10,7 @@ export class EmployeePayload
     dob:String;
     city:String;
     mobile:String;
-    status:String;
+    Status:String;
     manager_id:number;
 
 }

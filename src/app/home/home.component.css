@@ -1,0 +1,28 @@
+.address{
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+}
+
+table{
+    border-top: black;
+    border-bottom: black;
+    border-collapse: collapse;
+}
+
+th , td {
+    padding: 15px;
+}
+
+table {
+    
+    border-collapse: collapse;
+    table-layout:fixed;
+
+}
+
+th,td{
+    text-align:center;
+    
+}

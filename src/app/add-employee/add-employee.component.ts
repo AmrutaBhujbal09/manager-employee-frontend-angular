@@ -47,7 +47,7 @@ export class AddEmployeeComponent implements OnInit {
       address:'',
       city:'',
       mobile:'',
-      status:'',
+      Status:'ACTIVE',
       manager_id:0
     }  
   }
@@ -61,7 +61,7 @@ export class AddEmployeeComponent implements OnInit {
     this.empPayload.first_name = this.addempForm.get('first_name').value;
     this.empPayload.last_name = this.addempForm.get('last_name').value;
     this.empPayload.mobile = this.addempForm.get('mobile').value;
-    this.empPayload.status='ACTIVE',
+    this.empPayload.Status='ACTIVE',
     this.empPayload.address = this.addempForm.get('address').value;
     this.empPayload.city = this.addempForm.get('city').value;
     this.empPayload.dob = this.addempForm.get('dob').value;

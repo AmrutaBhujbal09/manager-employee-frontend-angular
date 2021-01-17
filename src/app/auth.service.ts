@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-//import {LoginPayload} from './auth/login-payload';
 import { LoginPayload } from './auth/login/login-payload';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import { map } from 'rxjs/operators';

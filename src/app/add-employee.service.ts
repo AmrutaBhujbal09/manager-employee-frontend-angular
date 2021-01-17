@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import {EmployeePayload } from './add-employee/employee-payload';
+import { EmployeePayload } from './add-employee/employee-payload';
+
 
 import { Observable } from 'rxjs';
 
@@ -17,22 +18,35 @@ export class AddEmployeeService {
   }
   private baseUrl ="http://localhost:8000/";
 
-  /*getPostList(getBlogPayload:EmployeePayload):Observable<any> {
+  getEmpList():Observable<any> {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.post(this.baseUrl + 'api/blog/getBlogList', getBlogPayload , { headers:headers });
-  }*/
+    return this.httpClient.get(this.baseUrl + 'employee/getEmployee', { headers:headers });
+  }
 
   addEmloyee(empPayload:EmployeePayload):Observable<any> {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.post(this.baseUrl + 'employee/add',empPayload, { headers:headers });
+  }  
 
-  }
-
-  getEmployeeList():Observable<any>{
+  getEmpById(id:number):Observable<any> {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.get(this.baseUrl + 'employee/getEmployee' ,{ headers:headers })     
+    return this.httpClient.post(this.baseUrl + 'employee/getEmpDetails/' + id , { headers:headers });
 
   }
 
+   //Update user profile
+   updateProfile(updatePayload,id:Number):Observable<any> {
+    let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json' });
+    return this.httpClient.patch(this.baseUrl + 'employee/updateEmp/' + id ,{headers:headers});
+    
+  }
+
+  //delete user
+
+  deleteUser(id:Number)
+  {
+    let headers: HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.delete(this.baseUrl + 'api/deleteUser/' + id ,{headers : headers});
+  }
 
 }
