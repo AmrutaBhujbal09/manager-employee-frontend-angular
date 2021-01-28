@@ -1,4 +1,4 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+/*import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {  RegisterPayload } from '../auth/register/Register-Payload';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
@@ -30,6 +30,8 @@ export class UpdateProfileComponent implements OnInit {
       manager_id:0,
       mobile:'',
       company:null,
+      Status:'',
+      username:''
     
     }
   }
@@ -44,7 +46,6 @@ export class UpdateProfileComponent implements OnInit {
       //cell:[localData.mobile,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       address:[localData.address],
       company:[localData.company],
-      //mobile:[localData.mobile],
       city:[localData.city],
       username:[localData.username,[Validators.required]],
       email:[localData.email,[Validators.required,Validators.email,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
@@ -73,4 +74,4 @@ export class UpdateProfileComponent implements OnInit {
     });
   }
 
-}
+}*/ 

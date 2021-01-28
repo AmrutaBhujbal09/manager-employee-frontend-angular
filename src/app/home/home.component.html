@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container">
         
-        <table class= cellspacing="15" style="width:100%" >
+        <table cellspacing ="15" style="width:100%" >
             <tr>
             <th>First Name</th>
             <th>Last Name</th>
@@ -9,6 +9,7 @@
             <th>Company</th>
             <th>Address</th>
             <th>DOB</th>
+            <th>Action</th>
             </tr>
         </table>
 
@@ -24,19 +25,20 @@
                         <td><p>{{employee_app.company}}</p></td>
                         <td><p>{{employee_app.address}}</p></td>
                         <td><p>{{employee_app.dob}}</p></td>
+
+                        <td>
+                            
+                            
+                            <button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>Edit</button> 
+                              
+                            <button class="btn btn-sm btn-danger"><i class="fa fa-remove"></i><a (click)="delete()"></a>Delete</button>
+                                                         
+                        </td>
                         
                     </tr>
 
                 </table>
-                <!--<h3>{{employee_app.first_name}}</h3>
-                <h3>{{employee_app.last_name}}</h3>
-                <h3>{{employee_app.email}}</h3>
-                <h3>{{employee_app.company}}</h3>
-                <h3>{{employee_app.dob}}</h3>
-                <h3>{{employee_app.address}}</h3>-->
-        
-                <!--<p class="address" [innerHTML]="employee_app.address"></p> -->
-
+              
             </div>
         </div>
     </div>

@@ -2,7 +2,6 @@ export class EmployeePayload
 {
     email:String;
     password:String;
-    username:String;
     first_name:String;
     last_name:String;
     company:String;

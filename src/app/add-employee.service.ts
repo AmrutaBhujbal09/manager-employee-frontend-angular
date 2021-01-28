@@ -23,7 +23,7 @@ export class AddEmployeeService {
     return this.httpClient.get(this.baseUrl + 'employee/getEmployee', { headers:headers });
   }
 
-  addEmloyee(empPayload:EmployeePayload):Observable<any> {
+  addEmployee(empPayload:EmployeePayload):Observable<any> {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.post(this.baseUrl + 'employee/add',empPayload, { headers:headers });
   }  
@@ -46,7 +46,7 @@ export class AddEmployeeService {
   deleteUser(id:Number)
   {
     let headers: HttpHeaders = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.delete(this.baseUrl + 'api/deleteUser/' + id ,{headers : headers});
+    return this.httpClient.delete(this.baseUrl + 'employee/deleteEmp/' + id ,{headers : headers});
   }
 
 }

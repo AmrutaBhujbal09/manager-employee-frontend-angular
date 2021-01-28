@@ -41,7 +41,7 @@ export class AuthService {
     return this.httpClient.post(this.baseurl + 'manager/signup',registerPayload, {headers:headers});
   }
 
-  
+    
   
 
 

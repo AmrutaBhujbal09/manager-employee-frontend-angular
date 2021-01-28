@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterSuccessComponent } from './register-success/register-success.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { HomeComponent } from './home/home.component';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
+//import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     RegisterSuccessComponent,
     AddEmployeeComponent,
     HomeComponent,
-    UpdateProfileComponent,
+    //UpdateProfileComponent,
   
   ],
   imports: [
@@ -44,7 +44,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
       { path:'register',component:RegisterComponent },
       { path:'add-employee',component:AddEmployeeComponent},
       { path:'home',component:HomeComponent},
-      { path:'update-profile',component:UpdateProfileComponent},
+      //{ path:'update-profile',component:UpdateProfileComponent},
 
     ]),
   ],

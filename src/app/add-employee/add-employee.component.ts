@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-//import { PostInfoPayload } from './post-payload';
 import { AddEmployeeService } from '../add-employee.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { EmployeePayload} from './employee-payload';
@@ -26,12 +25,13 @@ export class AddEmployeeComponent implements OnInit {
       lname:['',[Validators.required]],
       address:['',[Validators.required]],
       dob:[''],
-      username:['',[Validators.required]],
+     // username:['',[Validators.required]],
       email:['',[Validators.required,Validators.email,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
       password:['',[Validators.required]],
       company:[''],
       mobile:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      city:['']
+      city:[''],
+      type_s:['',[Validators.required]]
 
     });//group
 
@@ -43,7 +43,6 @@ export class AddEmployeeComponent implements OnInit {
       last_name:'',
       dob:'',
       company:'',
-      username:'',
       address:'',
       city:'',
       mobile:'',
@@ -56,10 +55,12 @@ export class AddEmployeeComponent implements OnInit {
   }
 
 
-  addPost() {
+  onSubmit() {
     this.empPayload.email = this.addempForm.get('email').value;
-    this.empPayload.first_name = this.addempForm.get('first_name').value;
-    this.empPayload.last_name = this.addempForm.get('last_name').value;
+    this.empPayload.first_name = this.addempForm.get('fname').value;
+    this.empPayload.last_name = this.addempForm.get('lname').value;
+    this.empPayload.password=this.addempForm.get('password').value;
+    this.empPayload.company=this.addempForm.get('company').value;
     this.empPayload.mobile = this.addempForm.get('mobile').value;
     this.empPayload.Status='ACTIVE',
     this.empPayload.address = this.addempForm.get('address').value;
@@ -72,7 +73,7 @@ export class AddEmployeeComponent implements OnInit {
 
 
     //call api here
-    this.addemployeeService.addEmloyee(this.empPayload).subscribe(data => {
+    this.addemployeeService.addEmployee(this.empPayload).subscribe(data => {
       console.log(data);
       this.router.navigateByUrl("/home");
 
