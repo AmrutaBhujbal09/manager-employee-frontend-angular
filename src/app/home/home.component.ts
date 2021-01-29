@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import {AddEmployeeService} from '../add-employee.service';
 import { EmployeePayload } from '../add-employee/employee-payload';
-
+import { Router } from '@angular/router';
+import {LocalStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   addemp:Observable<Array<EmployeePayload>>;
   
   //addemptService.ts is used inside constructor beacuase inside that we write calling api logic from backend
-  constructor(private addempService:AddEmployeeService) {
+  constructor(private addempService:AddEmployeeService,private router:Router,private localstorage:LocalStorageService) {
 
 
     
@@ -27,19 +28,56 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    //call to the getEmpList api on home page  which has logic inside geteMPtList() method insode add-employeeServics class which is inside add-employee.service.ts
-    this.addempService.getEmpList().subscribe((res : any) =>{
-      
-      //to print all blogs on home page
-      console.log(res);
-      console.log("welcome to home page");
-      this.addemp = res;
+
+  this.addempService.getEmpList().subscribe((res : any) =>{
+
+    //to print all blogs on home page
+    console.log(res);
+    console.log("welcome to home page");
+    this.addemp = res;
     }, error => {
-      alert("Unable to fetch records");
+    alert("Unable to fetch records");
     
     })
-
-
   }
 
-}
+  updateEmp(id) 
+  {
+
+  console.log('function gets called')
+    localStorage.setItem('employee_id',id)  
+  if (id)
+    {
+
+    this.router.navigateByUrl("/update-profile");
+    // this.router.navigate(['/add-services'])
+  
+    }  
+  }
+
+
+  deleteEpm(id)
+  {
+    //let data=this.localstorage.retrieve('loginData');
+    //console.log(data);
+    var r=confirm("You are about to delte employee , are you sure?");
+    if(r==true)
+    {
+      this.addempService.deleteUser(id).subscribe((res : any) =>{
+
+          //to print all blogs on home page
+          console.log(res);
+          console.log("");
+          alert('Employee Deleted    !!!')
+          }, error => {
+          alert("Unable to fetch records");
+          
+          })
+    }   
+
+    else{
+      console.log("false")
+    }
+    
+  }
+}  

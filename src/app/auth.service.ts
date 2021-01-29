@@ -1,3 +1,4 @@
+//Angular Services is a stateless object and provide very useful functions.Thses functions can be invoked from any component of Angular.
 import { Injectable } from '@angular/core';
 import { LoginPayload } from './auth/login/login-payload';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
@@ -10,13 +11,14 @@ import {RegisterPayload} from './auth/register/register-payload';
 })
 export class AuthService {
 
+  //common url for all apis.
   private baseurl ="http://localhost:8000/"; 
 
   constructor(private httpClient:HttpClient,private localStorageService:LocalStorageService) {
     
   }
 
-  //login aoi call
+  //login api call.
   login(loginPayload:LoginPayload):Observable<boolean> {
     let headers :HttpHeaders = new HttpHeaders({ 'Content-Type':'application/json'});
     return this.httpClient.post(this.baseurl +'manager/signin',loginPayload, {headers:headers}).pipe(map(data =>{
@@ -26,23 +28,20 @@ export class AuthService {
     }));
   }
 
-
-
- //isAuthenticated() method to check whether user has logged in or not
+ //isAuthenticated() method to check whether user has logged in or not.
   isAuthenticated():boolean{
     return this.localStorageService.retrieve('loginData') !=null;
   }
 
-
-
-   //register api call
+   //register api call.
   register(registerPayload:RegisterPayload): Observable<any> {
     let headers : HttpHeaders = new HttpHeaders({'Content-Type':'application/JSON'});
     return this.httpClient.post(this.baseurl + 'manager/signup',registerPayload, {headers:headers});
   }
-
     
-  
+  logout(){
+    this.localStorageService.clear('loginData');
+  }
 
 
 }

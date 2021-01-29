@@ -1,5 +1,5 @@
 <diV class=" container d-flex justify-content-center">
-    <form [formGroup]="addempForm" class="form-signin form-content-width border mt-3  p-8" style="width:45%;border-style:solid;border: width 8px;border-color:hsla(9,100%, 0%,0);border-radius: 25px; padding: 20px;background:white;"(ngSubmit)="onSubmit()">
+    <form [formGroup]="addempForm" class="form-signin form-content-width border mt-3  p-8" style="width:45%;border-style:solid;border: width 8px;border-color:hsla(9,100%, 0%,0);border-radius: 25px; padding: 20px;background:white;" (ngSubmit)="onSubmit()">
        
         <p class="h4 text-center mt-1 mb-3">Add Employee</p>
         <div class="container">
@@ -50,14 +50,17 @@
             <div class="form-group shadow -textarea" autofocus="">
                 <textarea class="form-control z-depth-1" rows="2" id="address" placeholder="Address" id="address"  [formControlName]="'address'" >
 
-                    
                 </textarea>
+                <label *ngIf="addempForm.get('address').hasError('address')" style="font-size:16px;color:red;">Cellphone is required
+                </label>
 
             </div>
 
 
             <div class="form-group">
                 <input type="text" id="company" [formControlName]="'company'" placeholder="Company Name" class="form-control mb-3" autofocus=""> 
+                <label *ngIf="addempForm.get('company').hasError('required')" style="font-size:16px;color:red;">Company name is required
+                </label>
             </div>
 
             <div class="form-group">
@@ -73,21 +76,13 @@
             </div>
 
             <div class="form-group">
-                <input type="date" id="dob" [formControlName]="'dob'" placeholder="Date Of Birth" class="form-control mb-3" autofocus=""> 
+                <input type="date" id="dob" [formControlName]="'dob'" placeholder="Date Of Birth" class="form-control mb-3" autofocus="">
+                <label *ngIf="addempForm.get('dob').hasError('required')" style="font-size:16px;color:red;">Date Of Birth is required
+                </label>
             </div>
         
-            
-            
-            <div class="r">
-                <small>Employee Staus</small>
-                <label><input type="radio" id="ACTIVE" [formControlName]="'type_s'" value="ACTIVE">ACTIVE</label>
-                
-                <label><input type="radio" id="INACTIVE" [formControlName]="'type_s'" value="INACTIVE">INACTIVE</label>
-            
-            </div> 
         
-           
-            <button class="btn btn-success btn-block mt-4" [disabled]="!addempForm.valid" type="submit">Add</button> 
+           <button class="btn btn-success btn-block mt-4" [disabled]="!addempForm.valid" type="submit">Add</button> 
            
         </div>
     </form>

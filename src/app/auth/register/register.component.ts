@@ -31,7 +31,8 @@ export class RegisterComponent implements OnInit {
 
     }); //group
       
-    
+    //intialises registerpayload fields
+
     this.registerPayload = {
       email:'',
       password:'',
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-
+    //data binding after user click on submit button.All form data  bind with specific payload. 
     this.registerPayload.email = this.registerForm.get('email').value;
     this.registerPayload.first_name = this.registerForm.get('fname').value;
     this.registerPayload.last_name = this.registerForm.get('lname').value;
@@ -62,9 +63,10 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerPayload);
     //log() to print data on console
     
+    //call is given to register() which is dfine inside authService.
     this.authService.register(this.registerPayload).subscribe(data => {
 
-      alert("welcome user  register successfully.now go to login page");
+      alert("Welcome !!! register successfully,Now go to login page");
       console.log(data);
       this.router.navigateByUrl("/register-success");
     } , error => {

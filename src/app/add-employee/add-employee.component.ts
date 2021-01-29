@@ -24,14 +24,13 @@ export class AddEmployeeComponent implements OnInit {
       fname:['',[Validators.required]],
       lname:['',[Validators.required]],
       address:['',[Validators.required]],
-      dob:[''],
-     // username:['',[Validators.required]],
+      dob:['',[Validators.required]],
       email:['',[Validators.required,Validators.email,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
       password:['',[Validators.required]],
-      company:[''],
+      company:['',[Validators.required]],
       mobile:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      city:[''],
-      type_s:['',[Validators.required]]
+      city:['',[Validators.required]],
+      //:['',[Validators.required]]
 
     });//group
 
