@@ -125,7 +125,7 @@ export class UpdateProfileComponent implements OnInit {
   
 
     this.addempService.updateProfile(this.updatePayload,this.id).subscribe(data => {
-      alert("Employee updated successfully")
+      alert("Employee updated successfully !!!")
       this.router.navigateByUrl("/home");
       console.log("welcome");
     } , error =>{

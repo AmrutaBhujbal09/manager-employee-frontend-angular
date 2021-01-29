@@ -15,17 +15,13 @@ export class HomeComponent implements OnInit {
   
 
 //observalbe read response that is firstnam,last name  which are define in add-employee-payload.ts
-//purposeof reating service is to write  logic of calling api from backend
+//purposeof reating service is to write  logic of calling api from backend.
   addemp:Observable<Array<EmployeePayload>>;
   
   //addemptService.ts is used inside constructor beacuase inside that we write calling api logic from backend
   constructor(private addempService:AddEmployeeService,private router:Router,private localstorage:LocalStorageService) {
 
-
-    
-
-
-   }
+  }
 
   ngOnInit(): void {
 
@@ -65,10 +61,10 @@ export class HomeComponent implements OnInit {
     {
       this.addempService.deleteUser(id).subscribe((res : any) =>{
 
-          //to print all blogs on home page
+          
           console.log(res);
           console.log("");
-          alert('Employee Deleted    !!!')
+          alert('Employee Deleted Successfully  !!!')
           }, error => {
           alert("Unable to fetch records");
           

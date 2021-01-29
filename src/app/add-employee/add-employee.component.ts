@@ -74,6 +74,7 @@ export class AddEmployeeComponent implements OnInit {
     //call api here
     this.addemployeeService.addEmployee(this.empPayload).subscribe(data => {
       console.log(data);
+      alert("Employee added successfully !!")
       this.router.navigateByUrl("/home");
 
     } ,error => {
