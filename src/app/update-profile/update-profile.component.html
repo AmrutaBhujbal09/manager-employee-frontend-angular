@@ -27,27 +27,7 @@
                         </label>
                     </div>
                 </div>    
-            </div>
-
-            <div class="form-group">
-                <input type="text" id="inputusername" [formControlName]="'username'" placeholder="Username" class="form-control mb-3" autofocus="" editable="false"> 
-                <label *ngIf="updateprofileForm.get('username').hasError('required')" style="font-size:16px;color:red;">Username is required
-                </label>
-            </div>
-
-           
-            <div class="row">
-                <div class="col-sm-12">
-                    <input type="password" id="password" [formControlName]="'password'" placeholder="Password" class="text-left form-control mb-3" maxlength="15" autofocus="" editable="false">
-                    <label *ngIf="updateprofileForm?.get('password')?.touched && updateprofileForm?.get('password')?.hasError('required')" 
-                    class="text-danger warning-messages">Password is required</label>
-
-                </div>
-               
-            </div>
-            
-            
-            
+            </div>         
             
             <div class="form-group shadow -textarea" autofocus="">
                 <textarea class="form-control z-depth-1" rows="2" placeholder="Address" id="address"  [formControlName]="'address'" >

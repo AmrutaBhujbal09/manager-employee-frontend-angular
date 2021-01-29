@@ -27,7 +27,6 @@ export class UpdateProfileComponent implements OnInit {
   {
     this.updatePayload= {
       email:'',
-      password:'',
       first_name:'',
       last_name:'',
       dob:'',
@@ -36,7 +35,6 @@ export class UpdateProfileComponent implements OnInit {
       manager_id:0,
       mobile:'',
       company:null,
-      username:'',
       Status:''
     
     }
@@ -65,8 +63,6 @@ export class UpdateProfileComponent implements OnInit {
       dob:[this.updatePayload.dob],
       mobile:[localData.mobile,[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       city:[this.updatePayload.city],
-      username:[this.updatePayload.username,[Validators.required]],
-      password:[this.updatePayload.password],
       email:[this.updatePayload.email,[Validators.required,Validators.email,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
 
   
@@ -94,8 +90,8 @@ export class UpdateProfileComponent implements OnInit {
         dob:[this.updatePayload.dob],
         mobile:[this.updatePayload.mobile],
         city:[this.updatePayload.city],
-        username:[this.updatePayload.username,[Validators.required]],
-        password:[this.updatePayload.password],
+        //username:[this.updatePayload.username,[Validators.required]],
+       // password:[this.updatePayload.password],
         email:[this.updatePayload.email,[Validators.required,Validators.email,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
   
     
@@ -119,7 +115,7 @@ export class UpdateProfileComponent implements OnInit {
     this.updatePayload.last_name = this.updateprofileForm.get('lname').value;
     this.updatePayload.mobile = this.updateprofileForm.get('mobile').value;
     this.updatePayload.address = this.updateprofileForm.get('address').value;
-    this.updatePayload.username = this.updateprofileForm.get('username').value;
+    //this.updatePayload.username = this.updateprofileForm.get('username').value;
     this.updatePayload.company = this.updateprofileForm.get('company').value;
     this.updatePayload.dob = this.updateprofileForm.get('dob').value;
   
@@ -140,8 +136,8 @@ export class UpdateProfileComponent implements OnInit {
 export class Employee
 {
     email:String;
-    password:String;
-    username:String;
+//password:String;
+//username:String;
     first_name:String;
     last_name:String;
     company:String;
